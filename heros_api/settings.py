@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_filters',
+    'corsheaders',
     'rest_framework',
     'hero'
 ]
@@ -50,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'heros_api.urls'
@@ -125,3 +128,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = 'images'
 
 MEDIA_URL = '/media/'
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:4200',
+)
