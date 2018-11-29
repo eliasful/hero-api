@@ -1,9 +1,5 @@
 cd heros-api  
 python3 -m venv env
 . env/bin/activate
-pip install django
-pip install djangorestframework
-pip install django-filter
-pip install django-cors-headers
-pip install Pillow
+pip3 install -r requirements.txt
 python3 manage.py runserver
