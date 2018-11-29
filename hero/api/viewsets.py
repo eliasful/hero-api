@@ -11,8 +11,8 @@ class HeroViewSet(ModelViewSet):
     serializer_class = HeroSerializer
     filter_backends = (filters.SearchFilter,)
     search_fields = ('name',)
-    
-    
+
+
     @action(methods=['get'], detail=False)
     def favorites(self, request):
         favorites = Hero.objects.filter(favorite=True)
