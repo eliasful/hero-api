@@ -5,7 +5,7 @@ class Hero(models.Model):
     description = models.TextField()
     photo = models.TextField(blank=True, null=True)
     favorite = models.BooleanField(default=False)
-
+    teste = models.FileField(null=True, blank=True)
 
     def __str__(self):
         return self.name

@@ -39,9 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_filters',
+    'storages',
     'corsheaders',
     'rest_framework',
-    'hero'
+    'hero',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,15 @@ CORS_ORIGIN_WHITELIST = (
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+AWS_ACCESS_KEY_ID = 'AKIAI3CALNJJ6XZR5IEQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'hero-api-assets'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
+
+DEFAULT_FILE_STORAGE = 'hero_api.storage_backends.MediaStorage'
