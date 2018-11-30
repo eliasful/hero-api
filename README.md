@@ -1,5 +1,5 @@
-git clone https://github.com/eliasful/heros-api.git
-cd heros-api  
+git clone https://github.com/eliasful/hero-api.git
+cd hero-api  
 python3 -m venv env
 . env/bin/activate
 pip3 install -r requirements.txt

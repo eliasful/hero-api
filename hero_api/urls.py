@@ -8,7 +8,7 @@ from hero.api.viewsets import HeroViewSet
 
 
 router = routers.DefaultRouter()
-router.register(r'heros', HeroViewSet)
+router.register(r'heroes', HeroViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
