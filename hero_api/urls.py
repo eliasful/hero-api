@@ -12,5 +12,7 @@ router.register(r'heroes', HeroViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('', include('buckets.urls')),
+    # path('', include('buckets.test.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

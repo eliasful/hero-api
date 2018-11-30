@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 from decouple import config
+from corsheaders.defaults import default_headers
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     'storages',
+    'buckets',
     'corsheaders',
     'rest_framework',
     'hero',
@@ -49,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -128,20 +130,36 @@ MEDIA_ROOT = 'images'
 
 MEDIA_URL = '/media/'
 
-CORS_ORIGIN_WHITELIST = (
+CSRF_TRUSTED_ORIGINS = (
     'localhost:4200',
+)
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_HEADERS = default_headers + (
+    'X-CSRFToken',
+    'HTTP_X_CSRFTOKEN',
+    'csrf_token',
+    'csrf_protect',
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-AWS_ACCESS_KEY_ID = 'AKIAI3CALNJJ6XZR5IEQ'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'hero-api-assets'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-AWS_LOCATION = 'static'
+# AWS_ACCESS_KEY_ID = 'AKIAI3CALNJJ6XZR5IEQ'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'hero-api-assets'
+# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# AWS_S3_OBJECT_PARAMETERS = {
+#     'CacheControl': 'max-age=86400',
+# }
+# AWS_LOCATION = 'static'
 
-DEFAULT_FILE_STORAGE = 'hero_api.storage_backends.MediaStorage'
+DEFAULT_FILE_STORAGE = 'buckets.storage.S3Storage'
+# DEFAULT_FILE_STORAGE = 'buckets.test.storage.FakeS3Storage'
+
+AWS = {
+  'BUCKET': 'hero-api-assets',
+  'ACCESS_KEY': 'AKIAI3CALNJJ6XZR5IEQ',
+  'SECRET_KEY': 'j5hEIDIyzorlr//+ehaL3AlG7JXwVAT2hq7PKdxV',
+  'REGION': 'sa-east-1'
+}
