@@ -46,6 +46,13 @@ python3 manage.py runserver
 ~~~~
 * Acesse [http://localhost:8000](http://localhost:8000) para visualizar a API em funcionamento
 
+## Testando
+
+* Execute o comando abaixo para executar os testes da aplicação
+~~~~
+python3 manage.py test
+~~~~
+
 ## Utilizando
 
 A lista abaixo apresenta os endpoints disponíveis para utilização da API.
