@@ -80,6 +80,28 @@ HTTP 200 OK
 ~~~~
 ---
 ~~~~
+GET /heroes/favorites/
+~~~~
+
+#### Resposta
+
+Retorna um array com todos os super-heróis marcados como favorito
+
+~~~~
+HTTP 200 OK
+
+[
+    {
+        "id": 1,
+        "name": "Name",
+        "description": "Description",
+        "photo": "https://www.google.com/",
+        "favorite": true
+    }
+]
+~~~~
+---
+~~~~
 GET /heroes/:id/
 ~~~~
 
@@ -127,7 +149,7 @@ Media type: application/json
 }
 ~~~~
 
-#### Response
+#### Resposta
 
 Retorna o super-herói criado
 
@@ -162,7 +184,7 @@ Media type: application/json
 }
 ~~~~
 
-#### Response
+#### Resposta
 
 Retorna o super-herói atualizado
 
