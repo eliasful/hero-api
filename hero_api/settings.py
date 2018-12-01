@@ -51,7 +51,6 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -143,23 +142,3 @@ CORS_ALLOW_HEADERS = default_headers + (
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-
-# AWS_ACCESS_KEY_ID = 'AKIAI3CALNJJ6XZR5IEQ'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'hero-api-assets'
-# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-# AWS_S3_OBJECT_PARAMETERS = {
-#     'CacheControl': 'max-age=86400',
-# }
-# AWS_LOCATION = 'static'
-
-DEFAULT_FILE_STORAGE = 'buckets.storage.S3Storage'
-# DEFAULT_FILE_STORAGE = 'buckets.test.storage.FakeS3Storage'
-
-AWS = {
-  'BUCKET': 'hero-api-assets',
-  'ACCESS_KEY': 'AKIAI3CALNJJ6XZR5IEQ',
-  'SECRET_KEY': 'j5hEIDIyzorlr//+ehaL3AlG7JXwVAT2hq7PKdxV',
-  'REGION': 'sa-east-1'
-}
