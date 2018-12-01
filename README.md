@@ -1,7 +1,7 @@
 # hero-api
 
 Esse README contém as instruções para instalação e execução da API.
-(([exemplo de utilização da API com EmberJS](https://github.com/eliasful/hero)),)
+([exemplo de utilização da API com EmberJS](https://github.com/eliasful/hero))
 Você terá acesso a uma incrível ferramenta para armazenar e compartilhar facilmente, seus super-heróis prediletos.
 
 ## Pre-requesitos
